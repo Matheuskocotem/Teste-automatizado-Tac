@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('fillMandatoryFieldsAndSubmit', () => {
+    cy.get('input[name="firstName"]').type("Maria");
+    cy.get('input[name="lastName"]').type("Sampietro");
+    cy.get('input[name="email"]').type("maria@gmail.com");
+    cy.get('textarea[name="open-text-area"]').type("Uma Mensagem de texto", { delay: 0 });
+    cy.get('button[type="submit"]').click();
+});
